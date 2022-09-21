@@ -13,12 +13,9 @@ int main(void)
   time_t t;
   struct tm* ptr;
 
-  t = time(NULL);
-  ptr = localtime(&t);
-  
-
-  
   while ((lineSize = getline(&line, &len, stdin)) != -1) {
+	t = time(NULL);
+	ptr = localtime(&t);
         strftime (buf, LEN, "%Y-%m-%d_%H:%M:%S: ", ptr);
         fputs (buf, stdout);
 	printf("%s", line);
